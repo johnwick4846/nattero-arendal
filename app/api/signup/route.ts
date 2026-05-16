@@ -1,5 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 
+const MAILERLITE_API_KEY = process.env.MAILERLITE_API_KEY!;
+const MAILERLITE_GROUP_ID = process.env.MAILERLITE_GROUP_ID!;
+
 export async function POST(req: NextRequest) {
   try {
     const { name, email } = await req.json();
@@ -7,21 +10,38 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Mangler felt" }, { status: 400 });
     }
 
-    // TODO: Replace with real MailerLite API call
-    // const MAILERLITE_API_KEY = process.env.MAILERLITE_API_KEY;
-    // const MAILERLITE_GROUP_ID = process.env.MAILERLITE_GROUP_ID;
-    // await fetch(`https://connect.mailerlite.com/api/subscribers`, {
-    //   method: "POST",
-    //   headers: {
-    //     Authorization: `Bearer ${MAILERLITE_API_KEY}`,
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify({ email, fields: { name }, groups: [MAILERLITE_GROUP_ID] }),
-    // });
+    if (!MAILERLITE_API_KEY || !MAILERLITE_GROUP_ID) {
+      console.error("MailerLite env vars mangler");
+      return NextResponse.json({ error: "E-posttjeneste ikke konfigurert" }, { status: 500 });
+    }
 
-    console.log("Signup (prototype):", { name, email });
+    // Add subscriber to MailerLite
+    const mlRes = await fetch("https://connect.mailerlite.com/api/subscribers", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${MAILERLITE_API_KEY}`,
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        email,
+        fields: { name },
+        groups: [MAILERLITE_GROUP_ID],
+      }),
+    });
+
+    if (!mlRes.ok) {
+      const err = await mlRes.json();
+      console.error("MailerLite feil:", err);
+      // 409 = already subscribed — treat as OK
+      if (mlRes.status !== 409) {
+        return NextResponse.json({ error: "Feil ved påmelding" }, { status: 500 });
+      }
+    }
+
     return NextResponse.json({ ok: true });
-  } catch {
-    return NextResponse.json({ error: "Feil" }, { status: 500 });
+  } catch (e) {
+    console.error(e);
+    return NextResponse.json({ error: "Serverfeil" }, { status: 500 });
   }
 }
