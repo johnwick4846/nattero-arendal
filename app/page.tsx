@@ -13,7 +13,7 @@ export default function Home() {
           </div>
           <h1 className="text-4xl md:text-5xl font-bold leading-tight tracking-tight mb-6 max-w-2xl">
             Nattero gjelder for alle —<br />
-            <span className="text-gray-400">ikke bare dem som ikke er i russetiden.</span>
+            <span className="text-gray-400">også russen.</span>
           </h1>
           <p className="text-gray-300 text-lg max-w-xl mb-10 leading-relaxed">
             Politivedtektens § 2-1 er klar: ro og orden på offentlig sted mellom kl. 23:00 og 06:00.
