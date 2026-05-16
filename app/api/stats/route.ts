@@ -4,7 +4,7 @@ import { getHendelser } from "@/lib/db";
 export const dynamic = "force-dynamic";
 
 export async function GET() {
-  const hendelser = getHendelser();
+  const hendelser = await getHendelser();
   const godkjente = hendelser.filter((h) => h.godkjent);
 
   const netter = new Set(godkjente.map((h) => h.dato)).size;

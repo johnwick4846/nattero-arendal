@@ -4,8 +4,9 @@ import { addHendelse, getHendelser } from "@/lib/db";
 export const dynamic = "force-dynamic";
 
 export async function GET() {
-  const hendelser = getHendelser().filter((h) => h.godkjent && h.samtykke_anonym);
-  const anonyme = hendelser.map((h) => ({
+  const hendelser = await getHendelser();
+  const godkjente = hendelser.filter((h) => h.godkjent && h.samtykke_anonym);
+  const anonyme = godkjente.map((h) => ({
     id: h.id,
     dato: h.dato,
     tid_start: h.tid_start,
@@ -31,8 +32,11 @@ export async function POST(req: NextRequest) {
     let lng: number | null = null;
     if (data.adresse) {
       try {
+        const query = data.adresse.toLowerCase().includes("arendal")
+          ? data.adresse
+          : `${data.adresse}, Arendal, Norway`;
         const geo = await fetch(
-          `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(data.adresse + ", Arendal, Norway")}&format=json&limit=1`,
+          `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(query)}&format=json&limit=1`,
           { headers: { "User-Agent": "NatteroArendal/1.0 (natteroarendal.no)" } }
         );
         const geoData = await geo.json();
@@ -43,9 +47,10 @@ export async function POST(req: NextRequest) {
       } catch { /* ignore geocoding errors */ }
     }
 
-    const ny = addHendelse({ ...data, lat, lng });
+    const ny = await addHendelse({ ...data, lat, lng });
     return NextResponse.json({ ok: true, id: ny.id }, { status: 201 });
-  } catch {
+  } catch (e) {
+    console.error(e);
     return NextResponse.json({ error: "Feil ved lagring" }, { status: 500 });
   }
 }
