@@ -5,6 +5,8 @@ const DATA_DIR = path.join(process.cwd(), "data");
 const HENDELSER_FILE = path.join(DATA_DIR, "hendelser.json");
 
 export interface Hendelse {
+  lat: number | null;
+  lng: number | null;
   id: string;
   godkjent: boolean;
   innsendt: string;

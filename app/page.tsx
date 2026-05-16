@@ -52,37 +52,95 @@ export default function Home() {
             slik at ingen forstyrres unødig.»
           </p>
           <p className="text-sm text-gray-500 mt-3">
-            Denne bestemmelsen håndheves konsekvent for alle andre. Målet med dette initiativet er at det også skal gjelde under russefeiring.
+            Denne bestemmelsen gjelder for alle. Vi krever at den håndheves deretter.
           </p>
         </div>
       </section>
 
-      {/* Why */}
+      {/* How it works */}
       <section className="max-w-4xl mx-auto px-6 pb-16">
+        <h2 className="text-xl font-bold mb-8">Slik virker det</h2>
         <div className="grid md:grid-cols-3 gap-6">
           {[
             {
-              icon: "⚖️",
-              title: "Likebehandling",
-              body: "Loven gjelder for alle. Vi krever ikke et unntak — vi krever at unntaket opphører.",
+              step: "1",
+              title: "Du registrerer",
+              body: "Opplevde du nattestøy? Fyll ut skjemaet. Ta vare på tidspunkt, sted og om du kontaktet politiet.",
             },
             {
-              icon: "📍",
-              title: "Dokumentasjon",
-              body: "Innbyggere registrerer hendelser. Vi bygger et faktabasert bilde som politikere og politi ikke kan ignorere.",
+              step: "2",
+              title: "Vi dokumenterer",
+              body: "Alle godkjente hendelser publiseres anonymt på kartet. Et faktagrunnlag politikere og politiet ikke kan avfeie.",
             },
             {
-              icon: "😴",
-              title: "Søvn er ikke en luksus",
-              body: "Barnefamilier, skiftarbeidere og syke skal ikke måtte tape én måned i året til andres feiring.",
+              step: "3",
+              title: "Vi eskalerer",
+              body: "Dokumentasjonen sendes til politiledelse og bystyret i Arendal med krav om likebehandling.",
             },
           ].map((item) => (
-            <div key={item.title} className="bg-gray-50 rounded-xl p-6">
-              <div className="text-2xl mb-3">{item.icon}</div>
+            <div key={item.step} className="bg-gray-50 rounded-xl p-6">
+              <div className="w-8 h-8 bg-gray-900 text-white rounded-full flex items-center justify-center text-sm font-bold mb-4">
+                {item.step}
+              </div>
               <h3 className="font-semibold mb-2">{item.title}</h3>
               <p className="text-gray-600 text-sm leading-relaxed">{item.body}</p>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* Why */}
+      <section className="bg-gray-50 border-y border-gray-100">
+        <div className="max-w-4xl mx-auto px-6 py-16">
+          <h2 className="text-xl font-bold mb-8">Hvem er dette for?</h2>
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              { icon: "👨‍👩‍👧", label: "Barnefamilier", desc: "Som trenger at barna sover om natten." },
+              { icon: "🏥", label: "Skiftarbeidere", desc: "Som skal på jobb klokken seks om morgenen." },
+              { icon: "🏠", label: "Fastboende i sentrum", desc: "Som bor nær områder der russen samles." },
+            ].map((item) => (
+              <div key={item.label} className="flex gap-4 items-start">
+                <span className="text-3xl">{item.icon}</span>
+                <div>
+                  <p className="font-semibold text-sm">{item.label}</p>
+                  <p className="text-gray-500 text-sm">{item.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Take action */}
+      <section className="max-w-4xl mx-auto px-6 py-16">
+        <h2 className="text-xl font-bold mb-6">Hva kan du gjøre?</h2>
+        <div className="grid md:grid-cols-2 gap-4">
+          <Link href="/meld-inn" className="group border border-gray-200 rounded-xl p-6 hover:border-gray-400 transition">
+            <p className="font-semibold mb-1 group-hover:text-gray-700">📝 Registrer en hendelse</p>
+            <p className="text-sm text-gray-500">Dokumenter hva du opplevde. Tar 3 minutter.</p>
+          </Link>
+          <a
+            href="https://politiet.no/tjenester/anmeld/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group border border-gray-200 rounded-xl p-6 hover:border-gray-400 transition"
+          >
+            <p className="font-semibold mb-1 group-hover:text-gray-700">🚔 Anmeld til politiet</p>
+            <p className="text-sm text-gray-500">Du kan anmelde brudd på nattero via politiet.no.</p>
+          </a>
+          <a
+            href="https://www.arendal.kommune.no/kontakt-oss/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group border border-gray-200 rounded-xl p-6 hover:border-gray-400 transition"
+          >
+            <p className="font-semibold mb-1 group-hover:text-gray-700">🏛️ Kontakt kommunen</p>
+            <p className="text-sm text-gray-500">Send et brev til Arendal bystyre om manglende håndhevelse.</p>
+          </a>
+          <Link href="/kart" className="group border border-gray-200 rounded-xl p-6 hover:border-gray-400 transition">
+            <p className="font-semibold mb-1 group-hover:text-gray-700">🗺️ Del kartet</p>
+            <p className="text-sm text-gray-500">Vis kartet til naboer og lokale medier. Spredning er nøkkelen.</p>
+          </Link>
         </div>
       </section>
 
@@ -103,8 +161,15 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="border-t border-gray-100 text-center py-6 text-xs text-gray-400">
-        Nattero Arendal — innbyggerinitiativ · <Link href="/admin" className="hover:text-gray-600">Admin</Link>
+      <footer className="border-t border-gray-100 px-6 py-6">
+        <div className="max-w-4xl mx-auto flex flex-wrap justify-between items-center gap-4 text-xs text-gray-400">
+          <span>Nattero Arendal — innbyggerinitiativ</span>
+          <div className="flex gap-4">
+            <Link href="/personvern" className="hover:text-gray-600">Personvern</Link>
+            <a href="mailto:post@natteroarendal.no" className="hover:text-gray-600">post@natteroarendal.no</a>
+            <Link href="/admin" className="hover:text-gray-600">Admin</Link>
+          </div>
+        </div>
       </footer>
     </main>
   );
