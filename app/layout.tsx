@@ -36,6 +36,7 @@ export default function RootLayout({
             </Link>
             <div className="flex items-center gap-6 text-sm">
               <Link href="/kart" className="text-gray-500 hover:text-gray-900 transition">Kart</Link>
+              <Link href="/kontakt" className="text-gray-500 hover:text-gray-900 transition">Kontakt</Link>
               <Link
                 href="/meld-inn"
                 className="bg-gray-900 text-white px-4 py-1.5 rounded-full text-sm font-medium hover:bg-gray-700 transition"

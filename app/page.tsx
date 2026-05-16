@@ -144,6 +144,34 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Press / contact */}
+      <section className="max-w-4xl mx-auto px-6 pb-16">
+        <div className="border border-gray-200 rounded-xl p-8 flex flex-col md:flex-row md:items-center gap-6">
+          <div className="flex-1">
+            <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-2">Presse og kontakt</p>
+            <h2 className="text-xl font-bold mb-2">Vi er ikke anonyme</h2>
+            <p className="text-gray-600 text-sm leading-relaxed">
+              Dette initiativet drives av <strong>Andreas Poléo</strong>, Arendal.
+              Vi stiller gjerne opp til intervju og kommenterer tallene fra hendelsesloggen.
+            </p>
+          </div>
+          <div className="flex flex-col gap-3">
+            <a
+              href="mailto:post@natteroarendal.no"
+              className="bg-gray-900 text-white px-5 py-2.5 rounded-full text-sm font-medium hover:bg-gray-700 transition text-center"
+            >
+              post@natteroarendal.no
+            </a>
+            <Link
+              href="/kontakt"
+              className="border border-gray-200 px-5 py-2.5 rounded-full text-sm font-medium hover:bg-gray-50 transition text-center"
+            >
+              Kontakt og pressesider
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Email signup */}
       <section className="bg-gray-950 text-white">
         <div className="max-w-4xl mx-auto px-6 py-14">
@@ -165,6 +193,7 @@ export default function Home() {
         <div className="max-w-4xl mx-auto flex flex-wrap justify-between items-center gap-4 text-xs text-gray-400">
           <span>Nattero Arendal — innbyggerinitiativ</span>
           <div className="flex gap-4">
+            <Link href="/kontakt" className="hover:text-gray-600">Kontakt</Link>
             <Link href="/personvern" className="hover:text-gray-600">Personvern</Link>
             <a href="mailto:post@natteroarendal.no" className="hover:text-gray-600">post@natteroarendal.no</a>
             <Link href="/admin" className="hover:text-gray-600">Admin</Link>
