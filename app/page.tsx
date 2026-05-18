@@ -190,7 +190,6 @@ export default function Home() {
             <Link href="/om" className="hover:text-gray-600">Om</Link>
             <Link href="/kontakt" className="hover:text-gray-600">Kontakt</Link>
             <Link href="/personvern" className="hover:text-gray-600">Personvern</Link>
-            <Link href="/admin" className="hover:text-gray-600">Admin</Link>
           </div>
         </div>
       </footer>
