@@ -46,7 +46,7 @@ export default function HendelseKart() {
         shadowUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
       });
 
-      const map = L.map(mapRef.current!).setView([58.4618, 8.7716], 14);
+      const map = L.map(mapRef.current!).setView([58.4618, 8.8200], 12);
 
       L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
