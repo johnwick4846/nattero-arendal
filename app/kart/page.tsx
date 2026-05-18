@@ -1,7 +1,30 @@
+"use client";
 import Link from "next/link";
 import HendelseKart from "@/components/HendelseKart";
+import { useEffect, useState } from "react";
+
+interface Hendelse {
+  id: string;
+  dato: string;
+  tid_start: string;
+  tid_slutt: string;
+  adresse: string;
+  type_stoy: string[];
+  lydniva: string;
+  lat: number | null;
+  lng: number | null;
+}
 
 export default function Kart() {
+  const [hendelser, setHendelser] = useState<Hendelse[]>([]);
+
+  useEffect(() => {
+    fetch("/api/hendelser")
+      .then((r) => r.json())
+      .then((data: Hendelse[]) => setHendelser(data))
+      .catch(() => {});
+  }, []);
+
   return (
     <main className="max-w-3xl mx-auto px-6 py-12">
       <Link href="/" className="text-sm text-gray-500 hover:text-gray-900 mb-6 inline-block">← Tilbake</Link>
@@ -14,20 +37,19 @@ export default function Kart() {
 
       <div className="mt-8 space-y-3">
         <h2 className="font-semibold text-sm uppercase tracking-wide text-gray-500">Liste</h2>
-        {[
-          { dato: "15. mai 2025", tid: "23:15–04:00", sted: "Pollen", type: "Musikk", nivå: "Meget høyt" },
-          { dato: "15. mai 2025", tid: "01:00–02:45", sted: "Tyholmen", type: "Kjøretøy", nivå: "Forstyrrende" },
-          { dato: "14. mai 2025", tid: "00:30–03:15", sted: "Langbrygga", type: "Musikk, bråk", nivå: "Meget høyt" },
-        ].map((h, i) => (
-          <div key={i} className="border border-gray-200 rounded-lg p-4 text-sm">
+        {hendelser.length === 0 && (
+          <p className="text-sm text-gray-400">Ingen godkjente hendelser ennå.</p>
+        )}
+        {hendelser.map((h) => (
+          <div key={h.id} className="border border-gray-200 rounded-lg p-4 text-sm">
             <div className="flex justify-between items-start">
               <div>
-                <span className="font-medium">{h.sted}</span>
-                <span className="text-gray-400 ml-2">{h.dato}, kl. {h.tid}</span>
+                <span className="font-medium">{h.adresse}</span>
+                <span className="text-gray-400 ml-2">{h.dato}, kl. {h.tid_start}{h.tid_slutt ? `–${h.tid_slutt}` : ""}</span>
               </div>
-              <span className="text-xs text-gray-400">{h.type}</span>
+              <span className="text-xs text-gray-400">{h.type_stoy.join(", ")}</span>
             </div>
-            <p className="text-gray-500 mt-1">{h.nivå}</p>
+            <p className="text-gray-500 mt-1">{h.lydniva}</p>
           </div>
         ))}
       </div>

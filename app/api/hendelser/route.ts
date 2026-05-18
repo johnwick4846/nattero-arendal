@@ -5,7 +5,7 @@ export const dynamic = "force-dynamic";
 
 export async function GET() {
   const hendelser = await getHendelser();
-  const godkjente = hendelser.filter((h) => h.godkjent && h.samtykke_anonym);
+  const godkjente = hendelser.filter((h) => h.godkjent);
   const anonyme = godkjente.map((h) => ({
     id: h.id,
     dato: h.dato,
