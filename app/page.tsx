@@ -12,12 +12,11 @@ export default function Home() {
             Innbyggerinitiativ · Arendal
           </div>
           <h1 className="text-4xl md:text-5xl font-bold leading-tight tracking-tight mb-6 max-w-2xl">
-            Nattero gjelder for alle —<br />
-            <span className="text-gray-400">også russen.</span>
+            Nattero – også i russetiden
           </h1>
           <p className="text-gray-300 text-lg max-w-xl mb-10 leading-relaxed">
-            § 2-1 i politivedtekten forbyr støy på offentlig sted mellom kl. 23 og 06 — for alle.
-            Vi dokumenterer det som skjer og krever likebehandling.
+            Vi krever nattero for alle innbyggere i Arendal, selv om det er russetid. Russen skal
+            selvfølgelig få feire — uten at det går på bekostning av vanlige folk i sine hjem.
           </p>
           <div className="flex flex-wrap gap-3">
             <Link
@@ -36,16 +35,24 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Stats */}
+      {/* Om foreningen + stats */}
       <section className="max-w-4xl mx-auto px-6 -mt-6 relative z-10">
         <Stats />
+        <div className="mt-8">
+          <p className="text-gray-700 text-base leading-relaxed max-w-2xl">
+            Nattero Arendal er en forening stiftet i anledning russetiden 2026. Formålet er å sørge
+            for at stemmen til de som blir plaget av vedvarende støy blir hørt. Vi kartlegger
+            forstyrrelser av natteroen og plasserer dem på et kart —{" "}
+            <Link href="/meld-inn" className="underline hover:text-gray-900">registrer en hendelse her</Link>.
+          </p>
+        </div>
       </section>
 
       {/* Law quote */}
       <section className="max-w-4xl mx-auto px-6 py-16">
         <div className="bg-amber-50 border-l-4 border-amber-400 rounded-r-xl p-6">
           <p className="text-xs font-semibold uppercase tracking-widest text-amber-700 mb-2">
-            Politivedtekt § 2-1 — Nattero
+            Politivedtekt § 2-1 - Nattero
           </p>
           <p className="text-gray-800 text-lg italic leading-relaxed">
             «Mellom kl. 23.00 og kl. 06.00 skal ro og orden holdes på offentlig sted
@@ -172,8 +179,9 @@ export default function Home() {
           <div className="md:flex md:items-center md:justify-between gap-12">
             <div className="mb-8 md:mb-0">
               <h2 className="text-2xl font-bold mb-2">Bli medlem</h2>
-              <p className="text-gray-400 text-sm max-w-sm">
-                Støtt initiativet. Du får oppdateringer når noe skjer.
+              <p className="text-gray-400 text-sm max-w-sm leading-relaxed">
+                Medlemskap koster 30 kr. Du får nyhetsbrev om prosjektets utvikling.
+                Overskudd doneres til et formål i tråd med russefeiringen.
               </p>
             </div>
             <div className="flex-1 max-w-sm">
@@ -185,7 +193,7 @@ export default function Home() {
 
       <footer className="border-t border-gray-100 px-6 py-6">
         <div className="max-w-4xl mx-auto flex flex-wrap justify-between items-center gap-4 text-xs text-gray-400">
-          <span>Nattero Arendal — innbyggerinitiativ</span>
+          <span>Nattero Arendal - innbyggerinitiativ</span>
           <div className="flex gap-4">
             <Link href="/om" className="hover:text-gray-600">Om</Link>
             <Link href="/kontakt" className="hover:text-gray-600">Kontakt</Link>

@@ -8,31 +8,20 @@ interface StatsData {
   vekketNoen: number;
 }
 
-// Mock data for prototype — replace with real API call when DB is live
-const MOCK: StatsData = {
-  totalt: 14,
-  netter: 8,
-  politiKontaktet: 6,
-  vekketNoen: 11,
-};
-
 export default function Stats() {
-  const [data, setData] = useState<StatsData>(MOCK);
+  const [data, setData] = useState<StatsData>({ totalt: 0, netter: 0, politiKontaktet: 0, vekketNoen: 0 });
 
   useEffect(() => {
     fetch("/api/stats")
       .then((r) => r.json())
-      .then((d) => {
-        if (d.totalt > 0) setData(d);
-      })
+      .then((d) => setData(d))
       .catch(() => {});
   }, []);
 
   const items = [
     { value: data.totalt, label: "registrerte hendelser" },
     { value: data.netter, label: "netter med støy" },
-    { value: data.vekketNoen, label: "rapporterte om vekket noen" },
-    { value: data.politiKontaktet, label: "kontaktet politiet" },
+    { value: data.politiKontaktet, label: "politiet kontaktet" },
   ];
 
   return (
