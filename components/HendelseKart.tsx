@@ -13,16 +13,12 @@ interface Hendelse {
   lng: number | null;
 }
 
-const MOCK: Hendelse[] = [
-  { id: "m1", dato: "2025-05-14", tid_start: "00:30", tid_slutt: "03:15", adresse: "Langbrygga, Arendal", lat: 58.4609, lng: 8.7716, type_stoy: ["Musikk", "Bråk"], lydniva: "Meget høyt" },
-  { id: "m2", dato: "2025-05-15", tid_start: "01:00", tid_slutt: "02:45", adresse: "Tyholmen, Arendal", lat: 58.4635, lng: 8.7721, type_stoy: ["Kjøretøy"], lydniva: "Forstyrrende" },
-  { id: "m3", dato: "2025-05-15", tid_start: "23:15", tid_slutt: "04:00", adresse: "Pollen, Arendal", lat: 58.4618, lng: 8.7698, type_stoy: ["Musikk"], lydniva: "Meget høyt" },
-];
+
 
 export default function HendelseKart() {
   const mapRef = useRef<HTMLDivElement>(null);
   const mapInstanceRef = useRef<unknown>(null);
-  const [hendelser, setHendelser] = useState<Hendelse[]>(MOCK);
+  const [hendelser, setHendelser] = useState<Hendelse[]>([]);
   const [ready, setReady] = useState(false);
 
   // Fetch real data
@@ -31,7 +27,7 @@ export default function HendelseKart() {
       .then((r) => r.json())
       .then((data: Hendelse[]) => {
         const withCoords = data.filter((h) => h.lat && h.lng);
-        if (withCoords.length > 0) setHendelser(withCoords);
+        setHendelser(withCoords);
       })
       .catch(() => {});
   }, []);

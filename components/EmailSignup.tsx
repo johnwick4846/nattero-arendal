@@ -24,7 +24,7 @@ export default function EmailSignup({ dark = false }: { dark?: boolean }) {
   }
 
   if (status === "ok") {
-    return <p className={`font-medium ${dark ? "text-green-400" : "text-green-700"}`}>Takk! Du er meldt på.</p>;
+    return <p className={`font-medium ${dark ? "text-green-400" : "text-green-700"}`}>Takk! Du er registrert som medlem.</p>;
   }
 
   const inputClass = dark
@@ -60,7 +60,7 @@ export default function EmailSignup({ dark = false }: { dark?: boolean }) {
           className={`mt-0.5 ${checkboxClass}`}
           required
         />
-        Jeg samtykker til lagring av e-postadressen for oppdateringer fra Nattero Arendal (GDPR).
+        Jeg samtykker til lagring av mine opplysninger som medlem av Nattero Arendal (GDPR).
       </label>
       <button
         type="submit"
@@ -71,7 +71,7 @@ export default function EmailSignup({ dark = false }: { dark?: boolean }) {
             : "bg-gray-900 text-white hover:bg-gray-700"
         }`}
       >
-        {status === "loading" ? "Sender..." : "Meld meg på"}
+        {status === "loading" ? "Sender..." : "Bli medlem"}
       </button>
       {status === "error" && (
         <p className={`text-xs ${dark ? "text-red-400" : "text-red-600"}`}>Noe gikk galt. Prøv igjen.</p>

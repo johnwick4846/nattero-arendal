@@ -171,9 +171,9 @@ export default function Home() {
         <div className="max-w-4xl mx-auto px-6 py-14">
           <div className="md:flex md:items-center md:justify-between gap-12">
             <div className="mb-8 md:mb-0">
-              <h2 className="text-2xl font-bold mb-2">Hold deg oppdatert</h2>
+              <h2 className="text-2xl font-bold mb-2">Bli medlem</h2>
               <p className="text-gray-400 text-sm max-w-sm">
-                Oppdateringer når noe skjer. Ikke spam.
+                Støtt initiativet. Du får oppdateringer når noe skjer.
               </p>
             </div>
             <div className="flex-1 max-w-sm">
