@@ -16,7 +16,7 @@ export default function Home() {
           </h1>
           <p className="text-gray-300 text-lg max-w-xl mb-10 leading-relaxed">
             Vi krever nattero for alle innbyggere i Arendal, selv om det er russetid. Russen skal
-            selvfølgelig få feire — uten at det går på bekostning av vanlige folk i sine hjem.
+            selvfølgelig få feire — uten at det går på bekostning av vanlige folk i deres hjem.
           </p>
           <div className="flex flex-wrap gap-3">
             <Link
@@ -24,6 +24,12 @@ export default function Home() {
               className="bg-white text-gray-900 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition text-sm"
             >
               Registrer en hendelse
+            </Link>
+            <Link
+              href="#bli-medlem"
+              className="bg-white/15 text-white px-6 py-3 rounded-full font-semibold hover:bg-white/25 transition text-sm"
+            >
+              Bli medlem
             </Link>
             <Link
               href="/kart"
@@ -38,27 +44,14 @@ export default function Home() {
       {/* Om foreningen + stats */}
       <section className="max-w-4xl mx-auto px-6 -mt-6 relative z-10">
         <Stats />
-        <div className="mt-8">
+        <div className="mt-8 space-y-4">
           <p className="text-gray-700 text-base leading-relaxed max-w-2xl">
-            Nattero Arendal er en forening stiftet i anledning russetiden 2026. Formålet er å sørge
-            for at stemmen til de som blir plaget av vedvarende støy blir hørt. Vi kartlegger
-            forstyrrelser av natteroen og plasserer dem på et kart —{" "}
-            <Link href="/meld-inn" className="underline hover:text-gray-900">registrer en hendelse her</Link>.
+            Formålet til foreningen Nattero Arendal er å tale med en samlet stemme på vegne av de som plages av vedvarende støy fra russefeiringen.
           </p>
-        </div>
-      </section>
-
-      {/* Law quote */}
-      <section className="max-w-4xl mx-auto px-6 py-16">
-        <div className="bg-amber-50 border-l-4 border-amber-400 rounded-r-xl p-6">
-          <p className="text-xs font-semibold uppercase tracking-widest text-amber-700 mb-2">
-            Politivedtekt § 2-1 - Nattero
-          </p>
-          <p className="text-gray-800 text-lg italic leading-relaxed">
+          <p className="text-gray-500 text-base italic leading-relaxed max-w-2xl">
             «Mellom kl. 23.00 og kl. 06.00 skal ro og orden holdes på offentlig sted
-            slik at ingen forstyrres unødig.»
+            slik at ingen forstyrres unødig.» — Politivedtekt § 2-1
           </p>
-
         </div>
       </section>
 
@@ -79,7 +72,7 @@ export default function Home() {
             },
             {
               step: "3",
-              title: "Vi eskalerer",
+              title: "Vi tar det videre",
               body: "Faktagrunnlaget sendes til politiledelse og bystyre.",
             },
           ].map((item) => (
@@ -149,32 +142,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Press / contact */}
-      <section className="max-w-4xl mx-auto px-6 pb-16">
-        <div className="border border-gray-200 rounded-xl p-6 flex flex-col md:flex-row md:items-center gap-4">
-          <div className="flex-1">
-            <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-1">Pressekontakt</p>
-            <p className="text-gray-600 text-sm">Andreas Poléo, Arendal</p>
-          </div>
-          <div className="flex flex-col sm:flex-row gap-2">
-            <a
-              href="mailto:post@natteroarendal.no"
-              className="bg-gray-900 text-white px-5 py-2.5 rounded-full text-sm font-medium hover:bg-gray-700 transition text-center"
-            >
-              post@natteroarendal.no
-            </a>
-            <Link
-              href="/om"
-              className="border border-gray-200 px-5 py-2.5 rounded-full text-sm font-medium hover:bg-gray-50 transition text-center"
-            >
-              Om initiativet
-            </Link>
-          </div>
-        </div>
-      </section>
-
       {/* Email signup */}
-      <section className="bg-gray-950 text-white">
+      <section id="bli-medlem" className="bg-gray-950 text-white">
         <div className="max-w-4xl mx-auto px-6 py-14">
           <div className="md:flex md:items-center md:justify-between gap-12">
             <div className="mb-8 md:mb-0">
