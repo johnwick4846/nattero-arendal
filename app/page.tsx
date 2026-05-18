@@ -14,9 +14,13 @@ export default function Home() {
           <h1 className="text-4xl md:text-5xl font-bold leading-tight tracking-tight mb-6 max-w-2xl">
             Nattero – også i russetiden
           </h1>
-          <p className="text-gray-300 text-lg max-w-xl mb-10 leading-relaxed">
+          <p className="text-gray-300 text-lg max-w-xl mb-6 leading-relaxed">
             Vi krever nattero for alle innbyggere i Arendal, selv om det er russetid. Russen skal
             selvfølgelig få feire — uten at det går på bekostning av vanlige folk i deres hjem.
+          </p>
+          <p className="text-gray-400 text-sm max-w-xl mb-10 italic leading-relaxed">
+            «Mellom kl. 23.00 og kl. 06.00 skal ro og orden holdes på offentlig sted
+            slik at ingen forstyrres unødig.» — Politivedtekt § 2-1
           </p>
           <div className="flex flex-wrap gap-3">
             <Link
@@ -44,13 +48,9 @@ export default function Home() {
       {/* Om foreningen + stats */}
       <section className="max-w-4xl mx-auto px-6 -mt-6 relative z-10">
         <Stats />
-        <div className="mt-8 space-y-4">
+        <div className="mt-8">
           <p className="text-gray-700 text-base leading-relaxed max-w-2xl">
             Formålet til foreningen Nattero Arendal er å tale med en samlet stemme på vegne av de som plages av vedvarende støy fra russefeiringen.
-          </p>
-          <p className="text-gray-500 text-base italic leading-relaxed max-w-2xl">
-            «Mellom kl. 23.00 og kl. 06.00 skal ro og orden holdes på offentlig sted
-            slik at ingen forstyrres unødig.» — Politivedtekt § 2-1
           </p>
         </div>
       </section>
