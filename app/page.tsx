@@ -20,7 +20,7 @@ export default function Home() {
           </p>
           <p className="text-gray-400 text-sm max-w-xl mb-10 italic leading-relaxed">
             «Mellom kl. 23.00 og kl. 06.00 skal ro og orden holdes på offentlig sted
-            slik at ingen forstyrres unødig.» — Politivedtekt § 2-1
+            slik at ingen forstyrres unødig.» — Politivedtektene § 2-1
           </p>
           <div className="flex flex-wrap gap-3">
             <Link
@@ -48,7 +48,7 @@ export default function Home() {
       {/* Om foreningen + stats */}
       <section className="max-w-4xl mx-auto px-6 -mt-6 relative z-10">
         <Stats />
-        <div className="mt-8">
+        <div className="mt-8 mb-4">
           <p className="text-gray-700 text-base leading-relaxed max-w-2xl">
             Formålet til foreningen Nattero Arendal er å tale med en samlet stemme på vegne av de som plages av vedvarende støy fra russefeiringen.
           </p>
@@ -56,7 +56,7 @@ export default function Home() {
       </section>
 
       {/* How it works */}
-      <section className="max-w-4xl mx-auto px-6 pb-16">
+      <section className="max-w-4xl mx-auto px-6 py-16">
         <h2 className="text-xl font-bold mb-8">Slik virker det</h2>
         <div className="grid md:grid-cols-3 gap-6">
           {[
