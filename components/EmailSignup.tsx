@@ -2,8 +2,16 @@
 import { useState } from "react";
 
 export default function EmailSignup({ dark = false }: { dark?: boolean }) {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+  const [form, setForm] = useState({
+    name: "",
+    last_name: "",
+    email: "",
+    phone: "",
+    address: "",
+    z_i_p: "",
+    city: "",
+    birth_date: "",
+  });
   const [consent, setConsent] = useState(false);
   const [status, setStatus] = useState<"idle" | "loading" | "ok" | "error">("idle");
 
@@ -15,7 +23,7 @@ export default function EmailSignup({ dark = false }: { dark?: boolean }) {
       const res = await fetch("/api/signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email }),
+        body: JSON.stringify({ ...form }),
       });
       setStatus(res.ok ? "ok" : "error");
     } catch {
@@ -34,24 +42,26 @@ export default function EmailSignup({ dark = false }: { dark?: boolean }) {
   const labelClass = dark ? "text-white/60" : "text-gray-500";
   const checkboxClass = dark ? "accent-white" : "";
 
+  const set = (k: string) => (e: React.ChangeEvent<HTMLInputElement>) =>
+    setForm((f) => ({ ...f, [k]: e.target.value }));
+
   return (
     <form onSubmit={handleSubmit} className="space-y-3">
-      <input
-        type="text"
-        placeholder="Navn"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-        required
-        className={inputClass}
-      />
-      <input
-        type="email"
-        placeholder="E-post"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        required
-        className={inputClass}
-      />
+      <div className="grid grid-cols-2 gap-3">
+        <input type="text" placeholder="Fornavn *" value={form.name} onChange={set("name")} required className={inputClass} />
+        <input type="text" placeholder="Etternavn" value={form.last_name} onChange={set("last_name")} className={inputClass} />
+      </div>
+      <input type="email" placeholder="E-post *" value={form.email} onChange={set("email")} required className={inputClass} />
+      <input type="tel" placeholder="Telefon" value={form.phone} onChange={set("phone")} className={inputClass} />
+      <input type="text" placeholder="Gateadresse" value={form.address} onChange={set("address")} className={inputClass} />
+      <div className="grid grid-cols-2 gap-3">
+        <input type="text" placeholder="Postnummer" value={form.z_i_p} onChange={set("z_i_p")} className={inputClass} />
+        <input type="text" placeholder="Poststed" value={form.city} onChange={set("city")} className={inputClass} />
+      </div>
+      <div>
+        <label className={`block text-xs mb-1 ${labelClass}`}>Fødselsdato</label>
+        <input type="date" value={form.birth_date} onChange={set("birth_date")} className={inputClass} />
+      </div>
       <label className={`flex items-start gap-2 text-xs ${labelClass}`}>
         <input
           type="checkbox"

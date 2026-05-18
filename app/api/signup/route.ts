@@ -5,7 +5,7 @@ const MAILERLITE_GROUP_ID = process.env.MAILERLITE_GROUP_ID!;
 
 export async function POST(req: NextRequest) {
   try {
-    const { name, email } = await req.json();
+    const { name, last_name, email, phone, address, z_i_p, city, birth_date } = await req.json();
     if (!name || !email) {
       return NextResponse.json({ error: "Mangler felt" }, { status: 400 });
     }
@@ -25,7 +25,15 @@ export async function POST(req: NextRequest) {
       },
       body: JSON.stringify({
         email,
-        fields: { name },
+        fields: {
+          name,
+          ...(last_name && { last_name }),
+          ...(phone && { phone }),
+          ...(address && { address }),
+          ...(z_i_p && { z_i_p }),
+          ...(city && { city }),
+          ...(birth_date && { birth_date }),
+        },
         groups: [MAILERLITE_GROUP_ID],
       }),
     });
