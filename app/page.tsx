@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Stats from "@/components/Stats";
+import ShareButton from "@/components/ShareButton";
 
 export default function Home() {
   return (
@@ -117,14 +118,7 @@ export default function Home() {
             <p className="font-semibold mb-1 group-hover:text-gray-700">🤝 Bli medlem</p>
             <p className="text-sm text-gray-500">Støtt arbeidet vårt og bidra til at stemmen vår blir tydelig.</p>
           </Link>
-          <a
-            href="https://natteroarendal.no"
-            onClick={(e) => { e.preventDefault(); if (navigator.share) { navigator.share({ title: 'Nattero Arendal', url: 'https://natteroarendal.no' }); } else { navigator.clipboard.writeText('https://natteroarendal.no'); } }}
-            className="group border border-gray-200 rounded-xl p-6 hover:border-gray-400 transition cursor-pointer"
-          >
-            <p className="font-semibold mb-1 group-hover:text-gray-700">📲 Del med en venn</p>
-            <p className="text-sm text-gray-500">Spre ordet om Nattero Arendal.</p>
-          </a>
+          <ShareButton />
         </div>
       </section>
 
