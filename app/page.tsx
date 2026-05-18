@@ -1,5 +1,4 @@
 import Link from "next/link";
-import EmailSignup from "@/components/EmailSignup";
 import Stats from "@/components/Stats";
 
 export default function Home() {
@@ -30,7 +29,7 @@ export default function Home() {
               Registrer en hendelse
             </Link>
             <Link
-              href="#bli-medlem"
+              href="/bli-medlem"
               className="bg-white/15 text-white px-6 py-3 rounded-full font-semibold hover:bg-white/25 transition text-sm"
             >
               Bli medlem
@@ -139,24 +138,6 @@ export default function Home() {
             <p className="font-semibold mb-1 group-hover:text-gray-700">🗺️ Del kartet</p>
             <p className="text-sm text-gray-500">Del med naboer og medier.</p>
           </Link>
-        </div>
-      </section>
-
-      {/* Email signup */}
-      <section id="bli-medlem" className="bg-gray-950 text-white">
-        <div className="max-w-4xl mx-auto px-6 py-14">
-          <div className="md:flex md:items-center md:justify-between gap-12">
-            <div className="mb-8 md:mb-0">
-              <h2 className="text-2xl font-bold mb-2">Bli medlem</h2>
-              <p className="text-gray-400 text-sm max-w-sm leading-relaxed">
-                Medlemskap koster 30 kr. Du får nyhetsbrev om prosjektets utvikling.
-                Overskudd doneres til et formål i tråd med russefeiringen.
-              </p>
-            </div>
-            <div className="flex-1 max-w-sm">
-              <EmailSignup dark />
-            </div>
-          </div>
         </div>
       </section>
 
