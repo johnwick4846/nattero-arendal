@@ -79,26 +79,52 @@ export default function HendelseKart() {
         }
       });
 
+      // Group by approximate location (rounded to ~100m)
+      const grouped = new Map<string, typeof hendelser>();
       hendelser
         .filter((h) => h.lat && h.lng)
         .forEach((h) => {
-          L.circleMarker([h.lat!, h.lng!], {
-            radius: 12,
-            color: "#dc2626",
-            fillColor: "#dc2626",
-            fillOpacity: 0.5,
-            weight: 2,
-          })
-            .bindPopup(
-              `<div style="min-width:150px;font-size:13px">
-                <strong>${h.dato}</strong><br/>
-                kl. ${h.tid_start}${h.tid_slutt ? "–" + h.tid_slutt : ""}<br/>
-                ${h.type_stoy.join(", ")}<br/>
-                <em style="color:#666">${h.lydniva}</em>
-              </div>`
-            )
-            .addTo(map);
+          const key = `${Math.round(h.lat! * 1000) / 1000},${Math.round(h.lng! * 1000) / 1000}`;
+          if (!grouped.has(key)) grouped.set(key, []);
+          grouped.get(key)!.push(h);
         });
+
+      grouped.forEach((group) => {
+        const count = group.length;
+        const h0 = group[0];
+        const radius = Math.min(8 + count * 4, 28);
+        const popup = group
+          .map(
+            (h) =>
+              `<div style="margin-bottom:6px;font-size:13px">
+                <strong>${h.dato}</strong> kl. ${h.tid_start}${h.tid_slutt ? "–" + h.tid_slutt : ""}<br/>
+                ${h.type_stoy.join(", ")} — <em style="color:#666">${h.lydniva}</em>
+              </div>`
+          )
+          .join("<hr style='margin:4px 0'>");
+
+        const marker = L.circleMarker([h0.lat!, h0.lng!], {
+          radius,
+          color: "#dc2626",
+          fillColor: "#dc2626",
+          fillOpacity: 0.7,
+          weight: 2,
+        }).bindPopup(
+          `<div style="min-width:160px"><strong style="font-size:13px">${h0.adresse}${count > 1 ? ` — ${count} hendelser` : ""}</strong><hr style='margin:4px 0'>${popup}</div>`
+        );
+
+        if (count > 1) {
+          const icon = L.divIcon({
+            className: "",
+            html: `<div style="width:${radius * 2}px;height:${radius * 2}px;display:flex;align-items:center;justify-content:center;color:white;font-weight:bold;font-size:${count > 9 ? 11 : 13}px;pointer-events:none">${count}</div>`,
+            iconSize: [radius * 2, radius * 2],
+            iconAnchor: [radius, radius],
+          });
+          L.marker([h0.lat!, h0.lng!], { icon, interactive: false }).addTo(map);
+        }
+
+        marker.addTo(map);
+      });
     });
   }, [ready, hendelser]);
 
