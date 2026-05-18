@@ -89,22 +89,10 @@ export default function Home() {
       {/* Why */}
       <section className="bg-gray-50 border-y border-gray-100">
         <div className="max-w-4xl mx-auto px-6 py-16">
-          <h2 className="text-xl font-bold mb-8">Hvem er dette for?</h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              { icon: "👨‍👩‍👧", label: "Barnefamilier", desc: "Barn som trenger å sove." },
-              { icon: "🏥", label: "Skiftarbeidere", desc: "Med tidlig arbeid neste dag." },
-              { icon: "🏠", label: "Fastboende i sentrum", desc: "Nær der russen samles." },
-            ].map((item) => (
-              <div key={item.label} className="flex gap-4 items-start">
-                <span className="text-3xl">{item.icon}</span>
-                <div>
-                  <p className="font-semibold text-sm">{item.label}</p>
-                  <p className="text-gray-500 text-sm">{item.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+          <h2 className="text-xl font-bold mb-4">Hvem er dette for?</h2>
+          <p className="text-gray-600 text-base leading-relaxed max-w-2xl">
+            Målgruppen vår er folk som ønsker å sove godt om natten, og ikke ser noen grunn til at reglene om nattero ikke skal gjelde for russen også, på lik linje med alle andre.
+          </p>
         </div>
       </section>
 
