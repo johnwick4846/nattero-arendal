@@ -105,16 +105,7 @@ export default function Home() {
             <p className="text-sm text-gray-500">Tar 3 minutter.</p>
           </Link>
           <a
-            href="https://politiet.no/tjenester/anmeld/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group border border-gray-200 rounded-xl p-6 hover:border-gray-400 transition"
-          >
-            <p className="font-semibold mb-1 group-hover:text-gray-700">🚔 Anmeld til politiet</p>
-            <p className="text-sm text-gray-500">Via politiet.no</p>
-          </a>
-          <a
-            href="https://www.arendal.kommune.no/kontakt-oss/"
+            href="https://www.arendal.kommune.no/politikk/kommunestyre-og-bystyret/"
             target="_blank"
             rel="noopener noreferrer"
             className="group border border-gray-200 rounded-xl p-6 hover:border-gray-400 transition"
@@ -122,10 +113,18 @@ export default function Home() {
             <p className="font-semibold mb-1 group-hover:text-gray-700">🏛️ Kontakt kommunen</p>
             <p className="text-sm text-gray-500">Skriv til Arendal bystyre.</p>
           </a>
-          <Link href="/kart" className="group border border-gray-200 rounded-xl p-6 hover:border-gray-400 transition">
-            <p className="font-semibold mb-1 group-hover:text-gray-700">🗺️ Del kartet</p>
-            <p className="text-sm text-gray-500">Del med naboer og medier.</p>
+          <Link href="/bli-medlem" className="group border border-gray-200 rounded-xl p-6 hover:border-gray-400 transition">
+            <p className="font-semibold mb-1 group-hover:text-gray-700">🤝 Bli medlem</p>
+            <p className="text-sm text-gray-500">Støtt arbeidet vårt og bidra til at stemmen vår blir tydelig.</p>
           </Link>
+          <a
+            href="https://natteroarendal.no"
+            onClick={(e) => { e.preventDefault(); if (navigator.share) { navigator.share({ title: 'Nattero Arendal', url: 'https://natteroarendal.no' }); } else { navigator.clipboard.writeText('https://natteroarendal.no'); } }}
+            className="group border border-gray-200 rounded-xl p-6 hover:border-gray-400 transition cursor-pointer"
+          >
+            <p className="font-semibold mb-1 group-hover:text-gray-700">📲 Del med en venn</p>
+            <p className="text-sm text-gray-500">Spre ordet om Nattero Arendal.</p>
+          </a>
         </div>
       </section>
 

@@ -25,7 +25,7 @@ export default function Stats() {
   ];
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-gray-200 rounded-xl overflow-hidden">
+    <div className="grid grid-cols-3 gap-px bg-gray-200 rounded-xl overflow-hidden">
       {items.map((item) => (
         <div key={item.label} className="bg-white px-6 py-6 text-center">
           <div className="text-4xl font-bold text-gray-900 tabular-nums">{item.value}</div>
