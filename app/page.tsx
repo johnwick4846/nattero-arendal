@@ -12,11 +12,12 @@ export default function Home() {
             Innbyggerinitiativ · Arendal
           </div>
           <h1 className="text-4xl md:text-5xl font-bold leading-tight tracking-tight mb-6 max-w-2xl">
-            Nattero – også i russetiden
+            Nattero gjelder for alle – også russen.
           </h1>
           <p className="text-gray-300 text-lg max-w-xl mb-6 leading-relaxed">
-            Vi krever nattero for alle innbyggere i Arendal, selv om det er russetid. Russen skal
-            selvfølgelig få feire — uten at det går på bekostning av vanlige folk i deres hjem.
+            Politivedtektens § 2-1 gjelder hele året. Den gjelder alle. Vi dokumenterer
+            bruddene systematisk og krever at loven håndheves likt — uavhengig av hvem
+            som lager støyen.
           </p>
           <p className="text-gray-400 text-sm max-w-xl mb-10 italic leading-relaxed">
             «Mellom kl. 23.00 og kl. 06.00 skal ro og orden holdes på offentlig sted
@@ -30,16 +31,16 @@ export default function Home() {
               Registrer en hendelse
             </Link>
             <Link
-              href="/bli-medlem"
+              href="/skriv-deg-opp"
               className="bg-white/15 text-white px-6 py-3 rounded-full font-semibold hover:bg-white/25 transition text-sm"
             >
-              Bli medlem
+              Skriv deg opp
             </Link>
             <Link
-              href="/kart"
+              href="/hendelser"
               className="border border-white/30 text-white px-6 py-3 rounded-full font-medium hover:bg-white/10 transition text-sm"
             >
-              Se kartet
+              Se hendelser
             </Link>
           </div>
         </div>
@@ -68,7 +69,7 @@ export default function Home() {
             {
               step: "2",
               title: "Vi dokumenterer",
-              body: "Godkjente hendelser publiseres anonymt på kartet.",
+              body: "Godkjente hendelser publiseres anonymt i oversikten.",
             },
             {
               step: "3",
@@ -92,7 +93,8 @@ export default function Home() {
         <div className="max-w-4xl mx-auto px-6 py-16">
           <h2 className="text-xl font-bold mb-4">Hvem er dette for?</h2>
           <p className="text-gray-600 text-base leading-relaxed max-w-2xl">
-            Målgruppen vår er folk som ønsker å sove godt om natten, og ikke ser noen grunn til at reglene om nattero ikke skal gjelde for russen også, på lik linje med alle andre.
+            Dette er et sivilt og juridisk krav, ikke en følelsesmessig appell. Vi representerer
+            alle som mener at loven må hjemå likt — uten unntak for russetid.
           </p>
         </div>
       </section>
@@ -114,9 +116,9 @@ export default function Home() {
             <p className="font-semibold mb-1 group-hover:text-gray-700">🏛️ Kontakt kommunen</p>
             <p className="text-sm text-gray-500">Skriv til Arendal bystyre.</p>
           </a>
-          <Link href="/bli-medlem" className="group border border-gray-200 rounded-xl p-6 hover:border-gray-400 transition">
-            <p className="font-semibold mb-1 group-hover:text-gray-700">🤝 Bli medlem</p>
-            <p className="text-sm text-gray-500">Støtt arbeidet vårt og bidra til at stemmen vår blir tydelig.</p>
+          <Link href="/skriv-deg-opp" className="group border border-gray-200 rounded-xl p-6 hover:border-gray-400 transition">
+            <p className="font-semibold mb-1 group-hover:text-gray-700">🤝 Skriv deg opp</p>
+            <p className="text-sm text-gray-500">Vis at du støtter kravet om likebehandling.</p>
           </Link>
           <ShareButton />
         </div>
@@ -124,7 +126,7 @@ export default function Home() {
 
       <footer className="border-t border-gray-100 px-6 py-6">
         <div className="max-w-4xl mx-auto flex flex-wrap justify-between items-center gap-4 text-xs text-gray-400">
-          <span>Nattero Arendal - innbyggerinitiativ</span>
+          <span>Nei til russestøy i Arendal – innbyggerinitiativ</span>
           <div className="flex gap-4">
             <Link href="/om" className="hover:text-gray-600">Om</Link>
             <Link href="/kontakt" className="hover:text-gray-600">Kontakt</Link>

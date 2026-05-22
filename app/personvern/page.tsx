@@ -10,15 +10,15 @@ export default function Personvern() {
         <section>
           <h2 className="font-semibold text-base mb-2">Behandlingsansvarlig</h2>
           <p>
-            Nattero Arendal er et innbyggerinitiativ drevet av Andreas Poléo, Arendal.
-            Kontakt: <a href="mailto:post@natteroarendal.no" className="underline">post@natteroarendal.no</a>
+            Nei til russestøy i Arendal er et innbyggerinitiativ drevet av Andreas Poléo, Arendal.
+            Kontakt: <a href="mailto:post@neitilrussestoy.no" className="underline">post@neitilrussestoy.no</a>
           </p>
         </section>
 
         <section>
           <h2 className="font-semibold text-base mb-2">Hvilke opplysninger samler vi inn?</h2>
-          <p><strong>E-postliste:</strong> Navn og e-postadresse. Brukes kun til oppdateringer om initiativet. Lagres i MailerLite.</p>
-          <p className="mt-2"><strong>Hendelsesregistrering:</strong> Dato, tidspunkt, adresse, type støy og frivillige opplysninger du selv oppgir. Navn og e-post samles inn for verifisering og publiseres aldri offentlig. Adresse og tid publiseres anonymisert på kart kun med ditt samtykke.</p>
+          <p><strong>E-postliste / støttespillere:</strong> Navn og e-postadresse. Brukes kun til oppdateringer om initiativet. Lagres i MailerLite.</p>
+          <p className="mt-2"><strong>Hendelsesregistrering:</strong> Dato, adresse og beskrivelse. Navn og e-post samles inn for verifisering og publiseres aldri offentlig. Kun gatenavn (uten husnummer) vises i offentlig oversikt.</p>
         </section>
 
         <section>
@@ -28,12 +28,12 @@ export default function Personvern() {
 
         <section>
           <h2 className="font-semibold text-base mb-2">Deling av opplysninger</h2>
-          <p>Opplysninger deles ikke med tredjeparter, bortsett fra MailerLite for e-postutsendelser. Anonymiserte hendelsesdata kan brukes i rapporter til politiet eller kommunen.</p>
+          <p>Opplysninger deles ikke med tredjeparter, bortsett fra MailerLite for e-postutsendelser. Anonymiserte hendelsesdata (gatenavn, dato, beskrivelse) kan brukes i rapporter til politiet eller kommunen.</p>
         </section>
 
         <section>
           <h2 className="font-semibold text-base mb-2">Dine rettigheter</h2>
-          <p>Du har rett til innsyn, retting og sletting. Send e-post til <a href="mailto:post@natteroarendal.no" className="underline">post@natteroarendal.no</a>.</p>
+          <p>Du har rett til innsyn, retting og sletting. Send e-post til <a href="mailto:post@neitilrussestoy.no" className="underline">post@neitilrussestoy.no</a>.</p>
         </section>
 
         <section>

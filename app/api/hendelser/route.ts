@@ -3,17 +3,18 @@ import { addHendelse, getHendelser } from "@/lib/db";
 
 export const dynamic = "force-dynamic";
 
+function stripHouseNumber(adresse: string): string {
+  return adresse.replace(/\s+\d+[A-Za-z]?\s*$/, "").trim();
+}
+
 export async function GET() {
   const hendelser = await getHendelser();
   const godkjente = hendelser.filter((h) => h.godkjent);
   const anonyme = godkjente.map((h) => ({
     id: h.id,
     dato: h.dato,
-    tid_start: h.tid_start,
-    tid_slutt: h.tid_slutt,
-    adresse: h.adresse,
-    type_stoy: h.type_stoy,
-    lydniva: h.lydniva,
+    gatenavn: stripHouseNumber(h.adresse),
+    beskrivelse: h.beskrivelse ?? null,
     lat: h.lat,
     lng: h.lng,
   }));

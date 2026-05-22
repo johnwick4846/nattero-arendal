@@ -10,7 +10,7 @@ export default function Kontakt() {
         <section>
           <h2 className="font-semibold text-gray-900 mb-2">Presse og intervjuer</h2>
           <p>
-            <a href="mailto:post@natteroarendal.no" className="underline">post@natteroarendal.no</a>
+            <a href="mailto:post@neitilrussestoy.no" className="underline">post@neitilrussestoy.no</a>
           </p>
         </section>
 
@@ -18,7 +18,7 @@ export default function Kontakt() {
           <h2 className="font-semibold text-gray-900 mb-2">Slette en innmeldt hendelse</h2>
           <p>
             Send e-post med beskrivelse til{" "}
-            <a href="mailto:post@natteroarendal.no" className="underline">post@natteroarendal.no</a>.
+            <a href="mailto:post@neitilrussestoy.no" className="underline">post@neitilrussestoy.no</a>.
           </p>
         </section>
 

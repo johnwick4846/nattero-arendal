@@ -9,8 +9,8 @@ export default function Om() {
       <div className="space-y-8 text-sm text-gray-700 leading-relaxed">
         <section>
           <p>
-            Nattero Arendal dokumenterer brudd på politivedtektens § 2-1 og krever
-            at regelen håndheves likt — uavhengig av hvem som lager støy.
+            Nei til russestøy i Arendal dokumenterer brudd på politivedtektens § 2-1 og krever
+            at loven håndheves likt — uavhengig av hvem som lager støyen.
           </p>
         </section>
 
@@ -18,8 +18,9 @@ export default function Om() {
           <h2 className="font-semibold text-base text-gray-900 mb-2">Bakgrunn</h2>
           <p>
             Politivedtektens § 2-1 forbyr støy på offentlig sted mellom kl. 23:00 og 06:00.
-            Regelen gjelder russetid på lik linje med alt annet. Vi mener den ikke håndheves deretter,
-            og vil dokumentere dette systematisk — med faktagrunnlag som politiledelse og bystyre ikke kan avfeie.
+            Regelen gjelder russetid på lik linje med alt annet. Dette er et sivilt og juridisk
+            argument: loven er klar, og den må hjemå likt. Vi dokumenterer systematisk, slik at
+            politiledelse og bystyre ikke kan avfeie problemet.
           </p>
         </section>
 
@@ -34,7 +35,7 @@ export default function Om() {
         <section>
           <h2 className="font-semibold text-base text-gray-900 mb-2">Kontakt</h2>
           <p>
-            <a href="mailto:post@natteroarendal.no" className="underline">post@natteroarendal.no</a>
+            <a href="mailto:post@neitilrussestoy.no" className="underline">post@neitilrussestoy.no</a>
           </p>
         </section>
       </div>

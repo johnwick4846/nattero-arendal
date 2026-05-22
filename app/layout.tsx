@@ -3,22 +3,22 @@ import "./globals.css";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Nattero Arendal",
+  title: "Nei til russestøy i Arendal",
   description: "Innbyggerinitiativ: nattero gjelder for alle — også russen. Vi dokumenterer støyhendelser og krever at politivedtektens § 2-1 håndheves likt.",
   openGraph: {
-    title: "Nattero Arendal — nattero gjelder for alle",
+    title: "Nei til russestøy i Arendal",
     description: "Vi dokumenterer støyhendelser under russefeiring og krever likebehandling. Registrer din hendelse.",
-    url: "https://natteroarendal.no",
-    siteName: "Nattero Arendal",
+    url: "https://neitilrussestoy.no",
+    siteName: "Nei til russestøy i Arendal",
     locale: "nb_NO",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nattero Arendal",
+    title: "Nei til russestøy i Arendal",
     description: "Nattero gjelder for alle — også russen. Registrer din hendelse.",
   },
-  metadataBase: new URL("https://natteroarendal.no"),
+  metadataBase: new URL("https://neitilrussestoy.no"),
 };
 
 export default function RootLayout({
@@ -32,10 +32,10 @@ export default function RootLayout({
         <nav className="border-b border-gray-100 px-6 py-4">
           <div className="max-w-4xl mx-auto flex items-center justify-between">
             <Link href="/" className="font-semibold text-gray-900 tracking-tight">
-              Nattero Arendal
+              Nei til russestøy i Arendal
             </Link>
             <div className="flex items-center gap-6 text-sm">
-              <Link href="/kart" className="text-gray-500 hover:text-gray-900 transition">Kart</Link>
+              <Link href="/hendelser" className="text-gray-500 hover:text-gray-900 transition">Hendelser</Link>
               <Link href="/kontakt" className="text-gray-500 hover:text-gray-900 transition">Kontakt</Link>
               <Link
                 href="/meld-inn"

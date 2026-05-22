@@ -49,7 +49,12 @@ export default async function Admin() {
             </div>
 
             <div className="space-y-1 mb-3">
-              <p><span className="text-gray-400">Støy:</span> {h.type_stoy.join(", ")} — {h.lydniva}</p>
+              {h.beskrivelse && (
+                <p className="text-gray-700 leading-relaxed">{h.beskrivelse}</p>
+              )}
+              {h.type_stoy?.length > 0 && (
+                <p><span className="text-gray-400">Støy:</span> {h.type_stoy.join(", ")} {h.lydniva ? `— ${h.lydniva}` : ""}</p>
+              )}
               {h.vekket_noen && (
                 <p><span className="text-gray-400">Vekket:</span> {h.hvem_vekket || "ja"}</p>
               )}

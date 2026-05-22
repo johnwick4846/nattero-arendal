@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { addSignup } from "@/lib/db";
 
 const MAILERLITE_API_KEY = process.env.MAILERLITE_API_KEY!;
 const MAILERLITE_GROUP_ID = process.env.MAILERLITE_GROUP_ID!;
@@ -46,6 +47,9 @@ export async function POST(req: NextRequest) {
         return NextResponse.json({ error: "Feil ved påmelding" }, { status: 500 });
       }
     }
+
+    // Track signup locally for stats
+    try { await addSignup(email); } catch { /* ignore duplicate */ }
 
     return NextResponse.json({ ok: true });
   } catch (e) {
